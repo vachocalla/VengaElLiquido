@@ -175,36 +175,6 @@ def producto_delete(id):
 
 @app.route('/')
 def index():
-    #https://sus.minsalud.gob.bo/buscar_vacuna_pagina?nrodocumento_vacuna=5721370&fechanacimiento_vacuna=1988-01-06&complemento_vacuna=
-    #r = requests.get('https://sus.minsalud.gob.bo/buscar_vacuna_pagina?nrodocumento_vacuna=5721370&fechanacimiento_vacuna=1988-01-06&complemento_vacuna=',verify=False)
-    #print(r.text)
-    #print(r.status_code)
-    
-    url = r'https://sus.minsalud.gob.bo/buscar_vacuna_pagina?nrodocumento_vacuna=5721370&fechanacimiento_vacuna=1988-01-06&complemento_vacuna='
-    #url = r'https://sus.minsalud.gob.bo/buscar_vacuna_pagina?nrodocumento_vacuna=661074&fechanacimiento_vacuna=1957-12-26&complemento_vacuna='
-    try:
-        table = pd.read_html(url) # Returns list of all tables on page
-        df = table[0] # Select table of interest
-        print(df)
-        print(df.loc[0]['Nombre'])
-        print(df.loc[0]['Dosis'])
-        print(df.loc[0]['Fecha vacunacion'])
-    except:
-        print("No vacunado")
+    return "VENGA EL LIQUIDO"
 
-    
-    
-    
-
-    #s=r.text
-    #table = etree.HTML(s).find("body/div/div/div/div/table")
-    #print(table)
-    #rows = iter(table)
-    #headers = [col.text for col in next(rows)]
-    #for row in rows:
-    #    values = [col.text for col in row]
-    #    print(dict(zip(headers, values)))
-
-    return "Python CURSO"
-
-app.run(host="0.0.0.0", port=6789, debug=True)
+app.run(host="0.0.0.0", port=6789, ssl_context=('cert.pem', 'privkey.pem'), debug=True)
